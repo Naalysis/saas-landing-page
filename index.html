@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProductX - Elevate Your Workflow</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+  async function handleForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    await fetch("https://your-backend-url.onrender.com/signup", {
+      method: "POST",
+      body: formData
+    });
+    window.location.href = "/thankyou.html";
+    return false;
+  }
+</script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">ProductX</h1>
+      <a href="#signup" class="bg-blue-600 text-white px-4 py-2 rounded">Sign Up</a>
+    </div>
+  </header>
+
+  <section class="text-center py-20">
+    <h2 class="text-4xl font-bold mb-4">Streamline Your Workflow with ProductX</h2>
+    <p class="text-gray-600 max-w-xl mx-auto">All-in-one SaaS solution for managing your tasks, clients, and goals with ease.</p>
+    <a href="#signup" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full">Get Started Free</a>
+  </section>
+
+  <section class="bg-white py-10 px-4 max-w-xl mx-auto" id="signup">
+    <h3 class="text-2xl font-bold mb-4">Sign Up for Early Access</h3>
+    <form action="/thankyou.html" onsubmit="return handleForm(event)">
+      <input type="text" name="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded" required>
+      <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded" required>
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Join Now</button>
+    </form>
+  </section>
+
+  <footer class="text-center text-gray-500 text-sm mt-12 pb-4">ProductX</footer>
+</body>
+</html>
